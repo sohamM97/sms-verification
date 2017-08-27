@@ -1,7 +1,8 @@
 <html>
-<form>
+<form method="POST">{% csrf_token %}
 	Enter mobile number:<br>
-	<input type="text" name="mobile"><br>
+	<!--input type="text" name="mobile"-->
+	{{form.as_p}}<br>
 	<input type="submit" value="Send OTP"><br><br>
 	Enter OTP:<br>
 	<input type="text" name="mobile">
