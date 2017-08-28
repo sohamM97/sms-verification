@@ -3,8 +3,12 @@
 	Enter mobile number:<br>
 	<!--input type="text" name="mobile"-->
 	{{form.as_p}}<br>
-	<input type="submit" value="Send OTP"><br><br>
+	<input type="submit" name='send_otp' value="Send OTP"><br><br>
+</form>
+<form method="POST">{% csrf_token %}
 	Enter OTP:<br>
-	<input type="text" name="mobile">
+	<!--input type="text" name="mobile"-->
+	{{otp_form.as_p}}<br>
+	<input type="submit" name='enter_otp' value="Enter OTP">
 </form>
 </html>
