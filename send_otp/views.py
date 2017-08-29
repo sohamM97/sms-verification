@@ -16,15 +16,15 @@ class OTPForm(forms.Form):
 def generate_otp(mobile_no):
 
 	otp=random.randint(1000,9999)
-	#account_sid = "AC07ab8e0938b8758dd2cc29336754c258"
-	#auth_token = "e9a340fa42a1a11f2279e23e830221e8"
-	#client = Client(account_sid, auth_token)
-	#client.messages.create(
-	#	to=mobile_no,
-	#	from_="+18635765103",
-	#	body='Your One Time Password is '+str(otp))
+	account_sid = "AC07ab8e0938b8758dd2cc29336754c258"
+	auth_token = "e9a340fa42a1a11f2279e23e830221e8"
+	client = Client(account_sid, auth_token)
+	client.messages.create(
+		to=mobile_no,
+		from_="+18635765103",
+		body='Your One Time Password is '+str(otp))
 
-	print otp
+	#print otp
 	f=open('otp.txt','w')
 	f.write(str(otp))
 	f.close()	
@@ -50,7 +50,7 @@ def send_otp(request):
 		open('otp.txt','w').close()
 		cd2=otp_form.cleaned_data
 		entered_otp=cd2.get('otp')
-		print otp,entered_otp
+		#print otp,entered_otp
 		if otp==entered_otp:
 			return HttpResponseRedirect(reverse('Success'))
 		else:
