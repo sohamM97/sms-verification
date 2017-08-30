@@ -16,8 +16,8 @@ class OTPForm(forms.Form):
 def generate_otp(mobile_no):
 
 	otp=random.randint(1000,9999)
-	account_sid = "AC07ab8e0938b8758dd2cc29336754c258"
-	auth_token = "e9a340fa42a1a11f2279e23e830221e8"
+	account_sid = #your sid here
+	auth_token = #your auth_token here
 	client = Client(account_sid, auth_token)
 	client.messages.create(
 		to=mobile_no,
